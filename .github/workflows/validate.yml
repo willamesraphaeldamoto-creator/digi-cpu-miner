@@ -1,0 +1,21 @@
+name: Validate miner configuration
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check required configuration values
+        run: |
+          set -eu
+          grep -F 'stratum+tcp://digi.hmpool.io:3337' miner.yml
+          grep -F 'DPDCmF5RUXoPCyaTHunvHgpc9ZsQj55Bjt.cpu1' miner.yml
+          grep -F 'sha256d' miner.yml
+          echo "Required configuration values found."
