@@ -1,0 +1,11 @@
+pool:
+  url: "stratum+tcp://digi.hmpool.io:3337"
+  username: "DPDCmF5RUXoPCyaTHunvHgpc9ZsQj55Bjt.cpu1"
+  password: "x"
+
+algorithm: "sha256d"
+
+worker:
+  name: "cpu1"
+  threads: 2
+  max_cpu_percent: 50
